@@ -1,24 +1,65 @@
 # sbt-runfast
 
-An sbt AutoPlugin
+Generates a shell script which lets you easily run your main class without SBT (much faster than `sbt run`!).
 
 ## Usage
 
-This plugin requires sbt 0.13.5+
+Currently, there are no JARs available, so you need to build the plugin yourself:
 
-### Testing
+``` Shell
+sbt publishLocal
+```
 
-Run `test` for regular unit tests.
+When you have the JAR, you can add the following line to the `project/plugins.sbt` inside your project, but I recommend adding it to your global `~/.sbt/0.13/plugins/plugins.sbt`:
+
+``` Scala
+addSbtPlugin("pl.tues" % "sbt-runfast" % "0.1-SNAPSHOT")
+```
+
+Next, run:
+
+``` Shell
+sbt runfastGenerate
+```
+
+inside your project. It will generate a script called `runfast.sh` in your `target/` directory. Running your program now is straightforward:
+
+``` Shell
+target/runfast.sh
+```
+
+The script uses absolute paths, so you can run it from anywhere:
+
+``` Shell
+/path/to/your/project/target/runfast.sh
+```
+
+You can even copy it somewhere else and run from there.
+
+The script passes all arguments to your program. This was actually the reason I wrote the plugin, as I wanted to use Bash's temporary files as arguments to my program:
+
+``` Shell
+target/runfast.sh foo <(grep bar baz | head)
+```
+
+Speed is a nice side-effect.
+
+## Requirements
+
+This plugin requires `sbt 0.13.5+`, `/bin/bash` and `chmod`. I might add support for other platforms in the future, but I don't need it myself, so contributions are welcome.
+
+## How does it work?
+
+The plugin simply generates a file `target/runfast.sh` containing something like:
+
+``` Shell
+#!/bin/bash
+
+java -cp '<fullClasspath>' '<mainClass>'
+```
+
+Really simple, but saves a lot of time!
+
+## Testing
 
 Run `scripted` for [sbt script tests](http://www.scala-sbt.org/0.13/docs/Testing-sbt-plugins.html).
-
-### Publishing
-
-1. publish your source to GitHub
-2. [create a bintray account](https://bintray.com/signup/index) and [set up bintray credentials](https://github.com/sbt/sbt-bintray#publishing)
-3. create a bintray repository `sbt-plugins` 
-4. update your bintray publishing settings in `build.sbt`
-5. `sbt publish`
-6. [request inclusion in sbt-plugin-releases](https://bintray.com/sbt/sbt-plugin-releases)
-7. [Add your plugin to the community plugins list](https://github.com/sbt/website#attention-plugin-authors)
-8. [Claim your project an Scaladex](https://github.com/scalacenter/scaladex-contrib#claim-your-project)

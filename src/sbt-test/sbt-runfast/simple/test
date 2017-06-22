@@ -1,1 +1,2 @@
-> show exampleTask
+> runfastGenerate
+$ exists target/runfast.sh

@@ -2,7 +2,7 @@ name := """sbt-runfast"""
 organization := "pl.tues"
 version := "0.1-SNAPSHOT"
 
-scalaVersion := "2.11.11"
+scalaVersion := "2.10.6"
 
 sbtPlugin := true
 
@@ -12,7 +12,7 @@ libraryDependencies ++= Seq(
 )
 
 bintrayPackageLabels := Seq("sbt","plugin")
-bintrayVcsUrl := Some("""git@github.com:pl.tues/sbt-runfast.git""")
+bintrayVcsUrl := Some("""git@github.com:tues/sbt-runfast.git""")
 
 initialCommands in console := """import pl.tues.sbt.runfast._"""
 

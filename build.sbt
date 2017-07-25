@@ -1,6 +1,5 @@
 name := """sbt-runfast"""
 organization := "pl.tues"
-version := "0.1-SNAPSHOT"
 licenses += ("BSD 3-Clause", url("http://opensource.org/licenses/BSD-3-Clause"))
 
 scalaVersion := "2.10.6"

@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/tues/sbt-runfast.svg?branch=master)](https://travis-ci.org/tues/sbt-runfast)
+
 # sbt-runfast
 
 Generates a shell script which lets you easily run your main class without SBT (much faster than `sbt run`!).

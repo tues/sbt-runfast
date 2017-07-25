@@ -2,3 +2,17 @@ language: scala
 
 script:
   - sbt scripted
+
+# Use container-based infrastructure (default, but just in case)
+sudo: false
+
+cache:
+  directories:
+    # Save a few minutes by caching dependencies
+    - $HOME/.ivy2/cache
+    - $HOME/.sbt
+
+before_cache:
+  # Cleanup the cached directories to avoid unnecessary cache updates
+  - find $HOME/.ivy2/cache -name "ivydata-*.properties" -print -delete
+  - find $HOME/.sbt        -name "*.lock"               -print -delete

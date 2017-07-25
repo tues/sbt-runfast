@@ -1,6 +1,7 @@
 name := """sbt-runfast"""
 organization := "pl.tues"
 version := "0.1-SNAPSHOT"
+licenses += ("BSD 3-Clause", url("http://opensource.org/licenses/BSD-3-Clause"))
 
 scalaVersion := "2.10.6"
 
@@ -11,8 +12,8 @@ libraryDependencies ++= Seq(
   "org.scalatest" %% "scalatest" % "3.0.1" % "test"
 )
 
-bintrayPackageLabels := Seq("sbt","plugin")
-bintrayVcsUrl := Some("""git@github.com:tues/sbt-runfast.git""")
+bintrayPackageLabels := Seq("sbt", "plugin")
+bintrayVcsUrl := Some("""https://github.com/tues/sbt-runfast.git""")
 
 initialCommands in console := """import pl.tues.sbt.runfast._"""
 

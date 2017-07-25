@@ -1,3 +1,4 @@
+[![Download](https://api.bintray.com/packages/tues/sbt-plugins/sbt-runfast/images/download.svg)](https://bintray.com/tues/sbt-plugins/sbt-runfast/_latestVersion)
 [![Build Status](https://travis-ci.org/tues/sbt-runfast.svg?branch=master)](https://travis-ci.org/tues/sbt-runfast)
 
 # sbt-runfast

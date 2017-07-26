@@ -7,17 +7,13 @@ Generates a shell script which lets you easily run your main class without SBT (
 
 ## Usage
 
-Currently, there are no JARs available, so you need to build the plugin yourself:
-
-``` Shell
-sbt publishLocal
-```
-
-When you have the JAR, you can add the following line to the `project/plugins.sbt` inside your project, but I recommend adding it to your global `~/.sbt/0.13/plugins/plugins.sbt`:
+The plugin is hosted in [sbt-plugin-releases repository](https://bintray.com/sbt/sbt-plugin-releases) so you can simply add the following line to your global `~/.sbt/0.13/plugins/plugins.sbt` to make it available in all of your projects:
 
 ``` Scala
-addSbtPlugin("pl.tues" % "sbt-runfast" % "0.1-SNAPSHOT")
+addSbtPlugin("pl.tues" % "sbt-runfast" % "0.1")
 ```
+
+Alternatively, you can enable it per-project by adding the above line to `<your-project>/project/plugins.sbt`.
 
 Next, run:
 
@@ -25,7 +21,7 @@ Next, run:
 sbt runfastGenerate
 ```
 
-inside your project. It will generate a script called `runfast.sh` in your `target/` directory. Running your program now is straightforward:
+inside your project. It will generate a script called `runfast.sh` in the `target/` directory. Running your program now is straightforward:
 
 ``` Shell
 target/runfast.sh

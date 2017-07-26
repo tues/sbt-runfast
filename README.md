@@ -3,6 +3,8 @@
 
 # sbt-runfast
 
+[![Join the chat at https://gitter.im/sbt-runfast/Lobby](https://badges.gitter.im/sbt-runfast/Lobby.svg)](https://gitter.im/sbt-runfast/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Generates a shell script which lets you easily run your main class without SBT (much faster than `sbt run`!).
 
 ## Usage

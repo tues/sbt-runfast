@@ -7,8 +7,8 @@ scalaVersion := "2.10.6"
 sbtPlugin := true
 
 libraryDependencies ++= Seq(
-  "org.scalactic" %% "scalactic" % "3.0.1" % "test",
-  "org.scalatest" %% "scalatest" % "3.0.1" % "test"
+  "org.scalactic" %% "scalactic" % "3.0.4" % "test",
+  "org.scalatest" %% "scalatest" % "3.0.4" % "test"
 )
 
 bintrayPackageLabels := Seq("sbt", "plugin")

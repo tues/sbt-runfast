@@ -4,6 +4,8 @@ import sbt._
 import sbt.Keys._
 import sbt.plugins.JvmPlugin
 
+import scala.sys.process.Process
+
 object SbtrunfastPlugin extends AutoPlugin {
 
   override def trigger = allRequirements
@@ -28,7 +30,7 @@ object SbtrunfastPlugin extends AutoPlugin {
         )
       )
 
-      (s"""chmod a+x ${runfastFile}""" !)
+      Process(Seq("chmod", "a+x", runfastFile.getPath())).!
 
       runfastFile
     }

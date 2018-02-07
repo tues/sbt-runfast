@@ -2,6 +2,8 @@ name := """sbt-runfast"""
 organization := "pl.tues"
 licenses += ("BSD 3-Clause", url("http://opensource.org/licenses/BSD-3-Clause"))
 
+scalacOptions := Seq("-unchecked", "-deprecation", "-feature", "-encoding", "utf8")
+
 scalaVersion := "2.10.6"
 
 sbtPlugin := true

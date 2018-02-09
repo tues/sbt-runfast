@@ -4,7 +4,11 @@ licenses += ("BSD 3-Clause", url("http://opensource.org/licenses/BSD-3-Clause"))
 
 scalacOptions := Seq("-unchecked", "-deprecation", "-feature", "-encoding", "utf8")
 
-scalaVersion := "2.10.6"
+crossSbtVersions := List("0.13.16", "1.0.4")
+scalaVersion := ((sbtBinaryVersion in pluginCrossBuild).value match {
+  case "0.13" => "2.10.4"
+  case _      => "2.12.4"
+})
 
 sbtPlugin := true
 
@@ -20,5 +24,4 @@ initialCommands in console := """import pl.tues.sbt.runfast._"""
 
 // set up 'scripted; sbt plugin for testing sbt plugins
 ScriptedPlugin.scriptedSettings
-scriptedLaunchOpts ++=
-  Seq("-Xmx1024M", "-XX:MaxPermSize=256M", "-Dplugin.version=" + version.value)
+scriptedLaunchOpts ++= Seq("-Xmx1024M", "-XX:MaxPermSize=256M", "-Dplugin.version=" + version.value)

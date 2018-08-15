@@ -1,7 +1,13 @@
 language: scala
 
+before_script:
+  - mkdir -p "$HOME"/.sbt/0.13/plugins/
+  - echo 'addSbtPlugin("io.get-coursier" % "sbt-coursier" % "1.0.3")' > "$HOME"/.sbt/0.13/plugins/build.sbt
+  - mkdir -p "$HOME"/.sbt/1.0/plugins/
+  - echo 'addSbtPlugin("io.get-coursier" % "sbt-coursier" % "1.0.3")' > "$HOME"/.sbt/1.0/plugins/build.sbt
+
 script:
-  - sbt scripted
+  - sbt ^scripted
 
 # Use container-based infrastructure (default, but just in case)
 sudo: false

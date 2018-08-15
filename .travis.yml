@@ -1,7 +1,7 @@
 language: scala
 
 script:
-  - sbt scripted
+  - sbt ^scripted
 
 # Use container-based infrastructure (default, but just in case)
 sudo: false
